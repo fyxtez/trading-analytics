@@ -1,9 +1,13 @@
 use chrono::Utc;
 use std::collections::HashMap;
 
-use crate::{parsing::parse_trade_event, types::{CleanMessage, Outcome, SignalKey, TradeEvent, TradeRecord}, utils::is_banned_symbol};
+use crate::{
+    parsing::parse_trade_event,
+    types::{CleanMessage, Outcome, SignalKey, TradeEvent, TradeRecord},
+    utils::is_banned_symbol,
+};
 
-pub fn build_trade_records(clean_messages: &[CleanMessage]) -> Vec<TradeRecord> {
+pub fn build_trade_records(clean_messages: &Vec<CleanMessage>) -> Vec<TradeRecord> {
     let mut trades: HashMap<SignalKey, TradeRecord> = HashMap::new();
 
     for msg in clean_messages {

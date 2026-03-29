@@ -25,7 +25,6 @@ pub struct CleanMessage {
     pub text: String,
 }
 
-
 #[derive(Debug, Clone)]
 pub struct TradeRecord {
     pub symbol: String,
@@ -42,14 +41,13 @@ pub struct TradeRecord {
     pub is_closed: bool,
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub enum Outcome {
     TP1,
     TP2,
     TP3,
     SL,
 }
-
 
 #[derive(Debug)]
 pub enum TradeEvent {
@@ -70,6 +68,5 @@ pub enum TradeEvent {
         entry: String,
     },
 }
-
 
 pub type SignalKey = (String, String, String); // (symbol, timeframe, entry)
